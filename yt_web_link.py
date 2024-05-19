@@ -1,7 +1,7 @@
 from googleapiclient.discovery import build
 from googlesearch import search
 
-def search_youtube_links(text, api_key, max_results=10):
+def search_youtube_links(text, api_key, max_results=2):
     youtube = build("youtube", "v3", developerKey=api_key)
 
     try:
@@ -46,8 +46,11 @@ def search_web_links(text):
         print("Error finding web links:", e)
         return []
 
-if __name__ == "__main__":
-    api_key = input("Enter your YouTube Data API key: ")
-    search_text = input("Enter text to search on YouTube and the web: ")
+# if __name__ == "__main__":
+def serch_link(search_text):
+    api_key = "AIzaSyBX-dUNvtSM8bppoWW4pHJj3ytBZaLKJtk"
+    search_text = search_text
     youtube_links = search_youtube_links(search_text, api_key)
     web_links = search_web_links(search_text)
+
+    return youtube_links,web_links
